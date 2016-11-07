@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javax.swing.*?>
+<?import javafx.collections.FXCollections?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="574.0" style="-fx-background-color: #C9E5E5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="elipticCurve.MainController">
+    <children>
+        <Label layoutX="47.0" layoutY="93.0" text="Параметр a:" />
+        <Label layoutX="136.0" layoutY="314.0" text="Результат:" />
+        <Button fx:id="clearId" layoutX="484.0" layoutY="322.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="36.0" prefWidth="74.0" text="Очистить" />
+        <Label fx:id="fail" layoutX="257.0" layoutY="31.0" textFill="#f50323" />
+        <Label layoutX="99.0" layoutY="18.0" text="Операции над точками эллиптический кривой" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="curveParamA" layoutX="121.0" layoutY="89.0" prefHeight="25.0" prefWidth="43.0" text="-1" />
+        <TextField fx:id="curveParamB" layoutX="251.0" layoutY="89.0" prefHeight="25.0" prefWidth="43.0" text="188" />
+        <TextField fx:id="result" layoutX="204.0" layoutY="310.0" />
+        <Label layoutX="176.0" layoutY="93.0" text="Параметр b:" />
+        <Label layoutX="41.0" layoutY="54.0" text="Параметры кривой">
+            <font>
+                <Font name="System Italic" size="15.0" />
+            </font>
+        </Label>
+        <Button fx:id="mul" layoutX="366.0" layoutY="310.0" mnemonicParsing="false" onAction="#mulAction" text="Выполнить" />
+      <Label layoutX="307.0" layoutY="93.0" text="Параметр P:" />
+      <TextField fx:id="curveParamP" layoutX="382.0" layoutY="89.0" prefHeight="25.0" prefWidth="43.0" text="751" />
+      <TabPane fx:id="tabPane" layoutX="43.0" layoutY="129.0" prefHeight="168.0" prefWidth="489.0" style="-fx-background-color: #a0b7b7;" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Сумма">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="489.0" style="-fx-background-color: #b4cece;">
+                     <children>
+                          <TextField fx:id="pointParamX" layoutX="212.0" layoutY="46.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                          <TextField fx:id="pointParamY" layoutX="288.0" layoutY="46.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                          <Label layoutX="195.0" layoutY="50.0" text="X:" />
+                          <Label layoutX="269.0" layoutY="50.0" text="Y:" />
+                          <Label layoutX="204.0" layoutY="3.0" text="A + B">
+                              <font>
+                                  <Font name="System Italic" size="24.0" />
+                              </font>
+                          </Label>
+                        <TextField fx:id="pointParamY2" layoutX="287.0" layoutY="77.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <TextField fx:id="pointParamX2" layoutX="211.0" layoutY="77.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <Label layoutX="20.0" layoutY="48.0" text="Координаты точки А">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="79.0" text="Координаты точки В">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="268.0" layoutY="81.0" text="Y:" />
+                        <Label layoutX="194.0" layoutY="81.0" text="X:" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Разница">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="489.0" style="-fx-background-color: #b4cece;">
+                     <children>
+                        <TextField fx:id="pointParamX5" layoutX="205.0" layoutY="44.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <TextField fx:id="pointParamY5" layoutX="281.0" layoutY="44.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <Label layoutX="188.0" layoutY="48.0" text="X:" />
+                        <Label layoutX="262.0" layoutY="48.0" text="Y:" />
+                        <Label layoutX="204.0" layoutY="3.0" text="A - B">
+                           <font>
+                              <Font name="System Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="pointParamY6" layoutX="281.0" layoutY="76.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <TextField fx:id="pointParamX6" layoutX="205.0" layoutY="76.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <Label layoutX="19.0" layoutY="46.0" text="Координаты точки А">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="19.0" layoutY="78.0" text="Координаты точки В">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="262.0" layoutY="80.0" text="Y:" />
+                        <Label layoutX="188.0" layoutY="80.0" text="X:" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Удвоение">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #b4cece;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="63.0" text="Координаты точки А">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="258.0" layoutY="65.0" text="Y:" />
+                        <Label layoutX="184.0" layoutY="65.0" text="X:" />
+                        <TextField fx:id="pointParamY3" layoutX="277.0" layoutY="61.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <TextField fx:id="pointParamX3" layoutX="201.0" layoutY="61.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <Label layoutX="216.0" layoutY="6.0" text="2A">
+                           <font>
+                              <Font name="System Italic" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Умножение">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #b4cece;">
+                     <children>
+                        <Label layoutX="214.0" layoutY="7.0" text="nA">
+                           <font>
+                              <Font name="System Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="pointParamX4" layoutX="194.0" layoutY="61.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <TextField fx:id="pointParamY4" layoutX="270.0" layoutY="61.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <Label layoutX="177.0" layoutY="65.0" text="X:" />
+                        <Label layoutX="251.0" layoutY="65.0" text="Y:" />
+                        <Label layoutX="14.0" layoutY="63.0" text="Координаты точки А">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </Label>
+                          <TextField fx:id="mulParamN" layoutX="347.0" layoutY="61.0" prefHeight="25.0" prefWidth="43.0" />
+                        <Label layoutX="330.0" layoutY="63.0" text="n">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Шифр Эль-Гамаля">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="text" layoutX="14.0" layoutY="39.0" prefHeight="64.0" prefWidth="217.0" />
+                        <TextArea fx:id="resultEnc" layoutX="258.0" layoutY="39.0" prefHeight="64.0" prefWidth="217.0" />
+                        <Button fx:id="encrypt" layoutX="219.0" layoutY="103.0" mnemonicParsing="false" onAction="#encryptAction" text="Зашифровать" />
+                        <Button fx:id="decrypt" layoutX="310.0" layoutY="103.0" mnemonicParsing="false" onAction="#decryptAction" text="Расшифровать" />
+                        <Button fx:id="clear" layoutX="407.0" layoutY="103.0" mnemonicParsing="false" onAction="#clear1Action" text="Очистить" />
+                        <Label layoutX="14.0" layoutY="14.0" text="Параметр q:" />
+                        <TextField fx:id="curveParamQ" layoutX="88.0" layoutY="10.0" prefHeight="25.0" prefWidth="43.0" text="727" />
+                        <TextField fx:id="pointGX" layoutX="190.0" layoutY="10.0" prefHeight="25.0" prefWidth="43.0" text="0" />
+                        <TextField fx:id="pointGY" layoutX="233.0" layoutY="10.0" prefHeight="25.0" prefWidth="43.0" text="376" />
+                        <Label layoutX="142.0" layoutY="14.0" text="Точка G(" />
+                        <Label layoutX="276.0" layoutY="14.0" text=")" />
+                        <Label layoutX="300.0" layoutY="14.0" text="Секретный ключ:" />
+                        <TextField fx:id="secretKey" layoutX="398.0" layoutY="10.0" prefHeight="25.0" prefWidth="43.0" text="6" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+        <Label layoutX="453.0" layoutY="60.0">
+            <font>
+                <Font name="System Italic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="468.0" layoutY="98.0" />
+      <Button fx:id="check" layoutX="453.0" layoutY="89.0" mnemonicParsing="false" onAction="#checkAction" text="Проверить" />
+    </children>
+</AnchorPane>
